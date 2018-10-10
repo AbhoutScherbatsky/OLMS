@@ -68,7 +68,7 @@
             
             <div class="row">
                 <div class="col l4 s12">
-                    <a href="#">
+                    <a href="BooksMgmnt.jsp">
                         <div class="card-panel valign-wrapper center-align waves-effect waves-red waves-block red lighten-3">
                             <i class="material-icons medium">library_books</i>
                             <p>BOOKS MANAGEMENT</p>
@@ -76,7 +76,7 @@
                     </a>
                 </div>
                 <div class="col l4 s12">
-                    <a href="#">
+                    <a href="UserMgmnt.jsp">
                         <div class="card-panel valign-wrapper center-align waves-effect waves-orange waves-block orange lighten-3">
                             <i class="material-icons medium">people</i>
                             <p>USER MANAGEMENT</p>
@@ -84,7 +84,7 @@
                     </a>
                 </div>
                 <div class="col l4 s12">
-                    <a href="#">
+                    <a href="adminAccountEdit.jsp">
                         <div class="card-panel valign-wrapper center-align waves-effect waves-green waves-block green lighten-3">
                             <i class="material-icons medium">edit</i>
                             <p>EDIT ACCOUNT</p>

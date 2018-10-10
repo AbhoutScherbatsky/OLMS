@@ -9,7 +9,7 @@
 <html>
 
 <head>
-    <title>Developers | CPC TPO Registration</title>
+    <title>Book Management</title>
     <meta charset="utf-8" />
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -54,7 +54,7 @@
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-wrapper blue darken-3 z-depth-1-half">
-            <a href="#!" class="brand-logo center">BOOKS</a>
+            <a href="#!" class="brand-logo center">BOOK LIST</a>
             <a href="#" data-activates="mobile-demo" class="button-collapse">
                 <i class="material-icons">menu</i>
             </a>
@@ -80,7 +80,8 @@
                                         <br>Author: John Smith
                                         <br>ISBN: XXXXXXXXXXX</span>
                     <div class="secondary-content">
-                        <a class="waves-effect waves-light btn orange">EDIT</a>
+                        <!--<a class="waves-effect waves-light btn orange">EDIT</a>-->
+                        <a  action="edit" method="post" class="waves-effect waves-light btn orange">EDIT</a>
                         <a class="waves-effect waves-light btn red">REMOVE</a>
                     </div>
                 </li>
@@ -131,8 +132,8 @@
           </div>
         <div class="footer-copyright blue darken-4">
             <div class="container">
-                Copyright © 2018. {!ORGANIZATION-NAME}
-                <a class="grey-text text-lighten-4 right" href="../dev.html">Designed by {!AUTHOR}</a>
+                Copyright © 2018. {OLMS}
+                <a class="grey-text text-lighten-4 right" href="../dev.html">Designed by {abhishek.panja554}</a>
             </div>
         </div>
     </footer>

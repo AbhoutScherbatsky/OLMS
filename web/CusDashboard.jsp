@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin Panel | CPC TPO Registration</title>
+    <title>Customer Dashboard</title>
     <meta charset="utf-8" />
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -66,7 +66,7 @@
             
             <div class="row">
                 <div class="col l4 s12">
-                    <a href="course_add.php">
+                    <a href="BookList.jsp">
                         <div class="card-panel valign-wrapper center-align waves-effect waves-red waves-block red lighten-3">
                             <i class="material-icons medium">list</i>
                             <p>BOOK LIST</p>
@@ -82,7 +82,7 @@
                     </a>
                 </div>
                 <div class="col l4 s12">
-                    <a href="course_list.php">
+                    <a href="userAccountEdit.jsp">
                         <div class="card-panel valign-wrapper center-align waves-effect waves-green waves-block green lighten-3">
                             <i class="material-icons medium">edit</i>
                             <p>EDIT ACCOUNT</p>

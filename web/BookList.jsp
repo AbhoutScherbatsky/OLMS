@@ -64,8 +64,8 @@
             <div class="row">
                 <div class="col l3 s12">
                     <div class="card small">
-                        <div class="card-image waves-effect waves-block waves-light">
-                            <img class="activator" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930">
+                        <div class="card-image waves-effect waves-block waves-light">                           
+                            <img class="activator" src="https://99designs-blog.imgix.net/wp-content/uploads/2017/12/attachment_83090027.jpg?auto=format&q=60&fit=max&w=930">                            
                         </div>
                         <div class="card-content">
                             <span class="card-title activator grey-text text-darken-4">Card Title<i class="material-icons right">more_vert</i></span>
