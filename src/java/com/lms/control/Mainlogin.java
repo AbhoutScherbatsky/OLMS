@@ -5,8 +5,14 @@
  */
 package com.lms.control;
 
+import com.lms.beans.CustBean;
+import com.lms.dao.mydao;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -23,26 +29,31 @@ public class Mainlogin extends HttpServlet {
 
     
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-                response.setContentType("text/html;charset=UTF-8");
-                PrintWriter out = response.getWriter();
-		response.setContentType("text/HTML");
-		String cusname= request.getParameter("cusname");
-		String cuspass= request.getParameter("cuspass");
-		if(cusname.equals("admin")&&cuspass.equals("12345"))
-		{	
-			System.out.println("servlet called");
-			out.print("<script>alert(\"Login Successful\")</script>");
-			RequestDispatcher rd=request.getRequestDispatcher("CusDashboard.jsp");
-			rd.forward(request, response);
+                        response.setContentType("text/html;charset=UTF-8");
+                        PrintWriter out = response.getWriter();
+                        response.setContentType("text/HTML");
+                        String cusname= request.getParameter("cusname");
+                        String cuspass= request.getParameter("cuspass");
+
+                        CustBean cb=new CustBean();
+                        cb.setEmail(cusname);
+                        cb.setPassword(cuspass);
+
+                        mydao d=new mydao();
+                       
+                        try {
+                            ResultSet rs = d.CustomerLogin(cb);
                         
-		}
-		else 
-		{
-			out.print("<script>alert(\"Wrong Credentials\")</script>");
-			RequestDispatcher rd=request.getRequestDispatcher("index.jsp");
-			rd.forward(request, response);
-		}
-        }
+                            if(rs.next())
+                            {
+                                out.print("<script>alert(\"Login SuccessFul\")</script>");
+                                    RequestDispatcher rd=request.getRequestDispatcher("CusDashboard.jsp");
+                                    rd.include(request, response);
+                            }
+                        } catch (SQLException ex) {
+                            Logger.getLogger(Mainlogin.class.getName()).log(Level.SEVERE, null, ex);
+                        }
+    }
     
 
     
