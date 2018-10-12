@@ -52,12 +52,12 @@
             response.sendRedirect("index.jsp");
             
         }
-        CustBean a = new CustBean();
-        session.setAttribute("cname",a.GetUname(a));
+        
     %>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-wrapper blue darken-3 z-depth-1-half">
+            
             <a class="brand-logo">Welcome ${cname}</a>
             <a href="#!" class="brand-logo center">DASHBOARD</a>            
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>

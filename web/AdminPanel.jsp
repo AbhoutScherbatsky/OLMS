@@ -9,7 +9,7 @@
 <html lang="en">
 
 <head>
-    <title>Admin Panel | CPC TPO Registration</title>
+    <title>Admin Panel</title>
     <meta charset="utf-8" />
     <!--Import Google Icon Font-->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">

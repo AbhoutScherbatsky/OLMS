@@ -19,6 +19,8 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import javax.websocket.Session;
 
 /**
  *
@@ -36,6 +38,7 @@ public class Mainlogin extends HttpServlet {
                         String cuspass= request.getParameter("cuspass");
 
                         CustBean cb=new CustBean();
+                        //CustBean a=new CustBean();
                         cb.setEmail(cusname);
                         cb.setPassword(cuspass);
 
@@ -43,12 +46,19 @@ public class Mainlogin extends HttpServlet {
                        
                         try {
                             ResultSet rs = d.CustomerLogin(cb);
-                        
+                            String n = d.GetUname(cb);
+                            System.out.println(n);
+                            HttpSession session=request.getSession();
+                            HttpSession session2=request.getSession();
+                            session2.setAttribute("cname",n);
                             if(rs.next())
                             {
-                                out.print("<script>alert(\"Login SuccessFul\")</script>");
-                                    RequestDispatcher rd=request.getRequestDispatcher("CusDashboard.jsp");
-                                    rd.include(request, response);
+                                
+                                session.setAttribute("username",cusname);
+                                RequestDispatcher rd=request.getRequestDispatcher("CusDashboard.jsp");
+                                rd.include(request, response);
+                                
+
                             }
                         } catch (SQLException ex) {
                             Logger.getLogger(Mainlogin.class.getName()).log(Level.SEVERE, null, ex);

@@ -47,6 +47,17 @@ public class mydao {
         
     }
     
+    public String GetUname(CustBean a) throws SQLException
+    {
+        String sql="select Cname from Customer where Email=?";
+        ps=con.prepareStatement(sql);
+        ps.setString(1,a.getEmail());
+        rs=ps.executeQuery();
+        rs.next();
+        String uname=rs.getString("Cname");
+        System.out.println(uname);
+        return uname;
+    }
     
     
 }

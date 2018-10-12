@@ -36,6 +36,15 @@
 </head>
 
 <body>
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        
+        if(session.getAttribute("username")== null)
+        {
+            response.sendRedirect("index.jsp");
+            
+        }
+    %>
     <!-- NAVIGATION -->
     <nav>
     <div class="nav-wrapper blue darken-2 z-depth-1-half">
