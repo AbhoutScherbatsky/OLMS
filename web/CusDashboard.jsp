@@ -4,6 +4,8 @@
     Author     : abhishek.panja554
 --%>
 
+<%@page import="com.lms.beans.CustBean"%>
+<%@page import="com.lms.dao.mydao"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -42,18 +44,38 @@
 </head>
 
 <body>
+    <%
+        response.setHeader("Cache-Control","no-cache,no-store,must-revalidate");
+        
+        if(session.getAttribute("username")== null)
+        {
+            response.sendRedirect("index.jsp");
+            
+        }
+        CustBean a = new CustBean();
+        session.setAttribute("cname",a.GetUname(a));
+    %>
     <!-- NAVIGATION -->
     <nav>
         <div class="nav-wrapper blue darken-3 z-depth-1-half">
-            <a href="#!" class="brand-logo center">DASHBOARD</a>
+            <a class="brand-logo">Welcome ${cname}</a>
+            <a href="#!" class="brand-logo center">DASHBOARD</a>            
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
                 
-                <li><a href="./logout.php">Log Out</a></li>
+                <li>
+                    <form action="Logout" method="post">
+                        <input style="background-color: blue;border-color:#00cccc " type="submit" value="Logout">
+                    </form>
+                </li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
                 
-                <li><a href="./logout.php">Log Out</a></li>
+                <li>
+                    <form action="Logout" method="post">
+                        <input style="background-color: blue;border-color:#00cccc " type="submit" value="Logout">
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
