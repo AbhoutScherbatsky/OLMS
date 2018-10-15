@@ -4,12 +4,14 @@
  * and open the template in the editor.
  */
 package com.lms.dao;
+import com.lms.beans.BookBean;
 import com.lms.connection.myconnect;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import com.lms.beans.CustBean;
 import java.sql.SQLException;
+import java.sql.Statement;
 /**
  *
  * @author abhishek.panja554
@@ -17,6 +19,7 @@ import java.sql.SQLException;
 public class mydao {
     Connection con=myconnect.dbcon();
     PreparedStatement ps = null;
+    Statement st=null;
     int result;
     ResultSet rs=null;
     
@@ -59,5 +62,44 @@ public class mydao {
         return uname;
     }
     
+    public ResultSet GetBookDetails() throws SQLException
+    {
+        String sql = "select * from books";
+        ps=con.prepareStatement(sql);
+        rs=ps.executeQuery();
+        return rs;
+    }
     
+    public int GetBID(BookBean b) throws SQLException
+    {
+        String sql =" select BID from books where ISBN =?";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1,b.getISBN());
+        rs=ps.executeQuery();
+        rs.next();
+        int BID =rs.getInt("BID");
+        return BID;
+    }
+    
+    public void IssueBook(BookBean b,CustBean a,String c) throws SQLException
+    {
+        String sql="insert into issued values(?,?,?)";
+        ps=con.prepareStatement(sql);
+        ps.setInt(1,b.getBID());
+        ps.setInt(2,a.getCID());
+        ps.setString(3,c);
+        ps.executeUpdate();
+    }
+    
+    
+    public ResultSet GetCustomerDetails( CustBean cb) throws SQLException
+    {
+        String sql = "select * from customer where Email =? and Password = ? ";
+        ps=con.prepareStatement(sql); 
+        ps.setString(1,cb.getEmail());
+        ps.setString(2,cb.getPassword());
+        rs=ps.executeQuery();
+        rs.next();
+        return rs;
+    }
 }

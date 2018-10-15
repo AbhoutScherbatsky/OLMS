@@ -36,7 +36,10 @@ public class Mainlogin extends HttpServlet {
                         response.setContentType("text/HTML");
                         String cusname= request.getParameter("cusname");
                         String cuspass= request.getParameter("cuspass");
-
+                        request.setAttribute("CustomerName",cusname);
+                        request.setAttribute("CustomerPassword",cuspass);
+//                        RequestDispatcher rd1 = request.getRequestDispatcher("userAccountEdit");
+//                        rd1.forward(request, response);
                         CustBean cb=new CustBean();
                         //CustBean a=new CustBean();
                         cb.setEmail(cusname);

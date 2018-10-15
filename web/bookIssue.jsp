@@ -55,7 +55,7 @@
                 <li><a href="#">Log Out</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="#">Home</a></li>
+                <li><a href="CusDashboard.jsp">Home</a></li>
                 <li><a href="#">Log Out</a></li>
             </ul>
         </div>
@@ -68,19 +68,19 @@
 
             <div class="card">
                 <div class="card-content">
-                    <form action="bookIssue" method="post">
+                    <form action="Issue" method="post">
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">library_books</i>
-                                <input type="text" id="booktitle" name="booktitle">
-                                <label for="booktitle">Book Title</label>
+                                <input type="text" id="booktitle" name="booktitle" value="${BookName}">
+                                <label for="booktitle">Book Name</label>
                             </div>
                         </div>
 
                         <div class="row">
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">mode_edit</i>
-                                <input type="text" id="bookid" name="bookid">
+                                <input type="text" id="bookid" name="bookid" value="${BID}">
                                 <label for="bookid">Book ID</label>
                             </div>
                         </div>
@@ -97,7 +97,7 @@
                             <div class="input-field col s12">
                                 <i class="material-icons prefix">date_range</i>
                                 <input type="text" class="datepicker" id="returndate" name="returndate">
-                                <label for="returndate">Return Date</label>
+                                <label for="returndate">Issue Till</label>
                             </div>
                         </div>
 

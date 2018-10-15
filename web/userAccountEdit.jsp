@@ -1,3 +1,6 @@
+<%@page import="com.lms.beans.CustBean"%>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="com.lms.dao.mydao"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,10 +51,10 @@
     <!-- NAVIGATION -->
     <nav>
     <div class="nav-wrapper blue darken-2 z-depth-1-half">
-        <div class="brand-logo">{BRAND-NAME}</div>
+        <div class="brand-logo">${cname}</div>
             <a href="#" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down">
-                <li><a href="#">Home</a></li>
+                <li><a href="CusDashboard.jsp">Home</a></li>
                 <li><a href="./logout.php">Log Out</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
@@ -72,25 +75,38 @@
                         <!-- MESSAGE -->
                         <div id="msg" class="center-align">
                         </div>
-
+                        <%  
+                            String CustomerName = (String)request.getParameter("CustomerName");
+                            String CustomerPassword = (String)request.getParameter("CustomerPassword");
+                            CustBean cb = new CustBean();
+                            cb.setEmail(CustomerName);
+                            cb.setPassword(CustomerPassword);
+                            mydao d = new mydao();
+                            ResultSet rs = d.GetCustomerDetails(cb);
+                            int CID = rs.getInt("CID") ;
+                            String Cname = rs.getString("Cname");
+                            String Email = rs.getString("Email");
+                            String Passw = rs.getString("Password");
+                            
+                            %>
                         <div class="row">
                             <div class="col s12">
-                                User ID: {USER-ID}
+                                User ID: <% out.println(CID); %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                Username: {USER-NAME}
+                                Display name: <% out.println(Cname); %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                Display name: {USER-DISPLAY-NAME}
+                                Email : <% out.println(Email); %>
                             </div>
                         </div>
                         <div class="row">
                             <div class="col s12">
-                                Password: ********
+                                Password: <% out.println(Passw); %>
                             </div>
                         </div>
                         <div class="row">
