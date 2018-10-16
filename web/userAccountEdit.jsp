@@ -88,7 +88,7 @@
                             String Email = rs.getString("Email");
                             String Passw = rs.getString("Password");
                             
-                            %>
+                         %>
                         <div class="row">
                             <div class="col s12">
                                 User ID: <% out.println(CID); %>
